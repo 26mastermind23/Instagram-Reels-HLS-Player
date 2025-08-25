@@ -19,13 +19,13 @@ Architecture
 
 React Frontend
       |
-      v
+      
 FastAPI Backend
       |
-      v
+      
 yt-dlp + ffmpeg → HLS (.m3u8 + .ts)
       |
-      v
+      
 Browser (hls.js)
 
 Workflow:
