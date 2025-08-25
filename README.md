@@ -17,7 +17,7 @@ Features
 
 Architecture
 
-React Frontend | FastAPI Backend | yt-dlp + ffmpeg → HLS (.m3u8 + .ts) | Browser (hls.js)
+React Frontend -> FastAPI Backend -> yt-dlp + ffmpeg → HLS (.m3u8 + .ts) -> Browser (hls.js)
 
 Workflow:
 
