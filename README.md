@@ -42,7 +42,7 @@ Workflow:
 Technologies Used
 
 - FastAPI – Backend API server.
-- yt-dlp – Downloads Instagram Reels.
+- yt-dlp – Downloads Instagram Reels and saves them in backend/streams/ 
 - ffmpeg – Converts video to HLS format.
 - HLS.js – Plays HLS streams in the browser.
 - React – Frontend UI.
@@ -68,6 +68,7 @@ cd Instagram-Reels-HLS-Player
 2. Build and start the containers:
 
 docker-compose build
+
 docker-compose up
 
 3. Open the frontend:
