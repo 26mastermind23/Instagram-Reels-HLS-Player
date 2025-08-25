@@ -1,21 +1,97 @@
-MIT License
+Instagram Reels HLS Player
 
-Copyright (c) 2025 26mastermind23
+This project allows you to play Instagram Reels directly on a custom website. It uses a React frontend and a Python FastAPI backend to download videos and serve them in HLS (.m3u8) format.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+---
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Features
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+- Input Instagram Reel URLs in a React frontend.
+- Backend downloads video using yt-dlp.
+- Converts video to HLS (.m3u8 + .ts chunks) using ffmpeg.
+- Automatic cleanup of old videos (default: 30 minutes).
+- Fully Dockerized — easy to run anywhere.
+- Plays HLS streams in browser using hls.js.
+
+---
+
+Architecture
+
+React Frontend
+      |
+      v
+FastAPI Backend
+      |
+      v
+yt-dlp + ffmpeg → HLS (.m3u8 + .ts)
+      |
+      v
+Browser (hls.js)
+
+Workflow:
+
+1. User enters Instagram Reel URL in the React frontend.
+2. Frontend sends POST request to /download API.
+3. Backend downloads the video and converts it to HLS.
+4. Backend returns .m3u8 playlist URL.
+5. Frontend plays the HLS video using hls.js.
+6. Old videos are automatically deleted after 30 minutes.
+
+---
+
+Technologies Used
+
+- FastAPI – Backend API server.
+- yt-dlp – Downloads Instagram Reels.
+- ffmpeg – Converts video to HLS format.
+- HLS.js – Plays HLS streams in the browser.
+- React – Frontend UI.
+- Docker + Docker Compose – Containerized environment.
+
+---
+
+Setup & Run
+
+Requirements:
+
+- Docker
+- Docker Compose
+
+Steps:
+
+1. Clone the repository:
+
+git clone <repo-url>
+cd <repo-folder>
+
+2. Build and start the containers:
+
+docker-compose build
+docker-compose up
+
+3. Open the frontend:
+
+http://localhost:3000
+
+4. Paste a public Instagram Reel URL and click “Play”.
+
+---
+
+Stop the Project
+
+docker-compose down
+
+- Stops all containers.
+- Add -v to remove volumes (including HLS video files):
+
+docker-compose down -v
+
+---
+
+Notes on Private Reels
+
+- This project only works with public Reels.
+- Downloading private Reels requires authentication (cookies/session) and may violate Instagram’s Terms of Service.
+- For private content, use your own account and session cookies with yt-dlp.
+
+---
