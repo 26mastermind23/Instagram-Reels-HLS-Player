@@ -61,8 +61,8 @@ Steps:
 
 1. Clone the repository:
 
-git clone <repo-url>
-cd <repo-folder>
+git clone https://github.com/26mastermind23/Instagram-Reels-HLS-Player
+cd Instagram-Reels-HLS-Player
 
 2. Build and start the containers:
 
