@@ -1,0 +1,14 @@
+# Treat React/JS files as JavaScript
+*.js linguist-language=JavaScript
+*.jsx linguist-language=JavaScript
+*.ts linguist-language=TypeScript
+*.tsx linguist-language=TypeScript
+
+# Treat HTML as HTML
+*.html linguist-language=HTML
+
+# Treat CSS as CSS
+*.css linguist-language=CSS
+
+# Treat JSON as JSON
+*.json linguist-language=JSON
